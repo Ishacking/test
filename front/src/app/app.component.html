@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+  <div id="loginform">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="full-width">
+            <input placeholder="Email" [formControl]="emailInput">
+        </div>
+        <div class="full-width">
+          <input placeholder="Password" type="password" [formControl]="passwordInput">
+      </div>
+        <button type="submit">Login</button>
+    </form>
+  </div>
+  <p ng-bind="result_login"></p>
+  
+  <div *ngIf="islogin">
+      <h2>Liste</h2>
+    <ul *ngFor="let c of contact">
+      <li (click)="sContact(c)">{{c.email}}</li>
+    </ul>
+  </div>
+  
+  <div *ngIf="contactChoiceClick">
+      <h2>View detail</h2>
+      <p><span>Name :</span>{{contactChoice.name}}</p>
+      <p><span>Email :</span> {{contactChoice.email}}</p>
+      <p><span>Age : </span>{{contactChoice.age}}</p>
+  </div>
+
+
